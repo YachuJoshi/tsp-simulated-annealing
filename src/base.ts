@@ -1,4 +1,4 @@
-const CANVAS_HEIGHT = window.innerHeight;
-const CANVAS_WIDTH = window.innerWidth;
+const CANVAS_HEIGHT = 600;
+const CANVAS_WIDTH = 600;
 
 export { CANVAS_HEIGHT, CANVAS_WIDTH };
