@@ -1,19 +1,10 @@
-import { CANVAS_HEIGHT, CANVAS_WIDTH } from "./base";
+import { City } from "./city";
 
-interface City {
-  x: number;
-  y: number;
-}
-
-export function getCities(totalCities: number) {
-  let cities: City[] = [];
-  for (let i = 0; i < totalCities; i++) {
-    const x = Math.floor(Math.random() * CANVAS_WIDTH);
-    const y = Math.floor(Math.random() * CANVAS_HEIGHT);
-    cities.push({ x, y });
-  }
-
-  return cities;
+export function getRandomValue(countA: number, countB: number = 0) {
+  return {
+    valueA: Math.floor(Math.random() * countA),
+    valueB: Math.floor(Math.random() * (countB || countA)),
+  };
 }
 
 export function getTotalDistance(cities: City[]) {
@@ -26,15 +17,10 @@ export function getTotalDistance(cities: City[]) {
     let d = Math.floor(Math.sqrt(xValue * xValue + yValue * yValue));
     distance += d;
   }
-
   return distance;
 }
 
-export function swap<T extends City>(
-  array: T[],
-  indexA: number,
-  indexB: number
-) {
+export function swap<T>(array: T[], indexA: number, indexB: number) {
   const temp = array[indexA];
   array[indexA] = array[indexB];
   array[indexB] = temp;
